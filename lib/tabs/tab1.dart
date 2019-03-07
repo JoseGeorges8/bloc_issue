@@ -49,11 +49,13 @@ class _Tab1State extends State<Tab1> {
                     style: TextStyle(color: Colors.green),
                   );
                 }
-                if (state is DummyError)
+                if (state is DummyError) {
                   return Text(
                     'Something went wrong!',
                     style: TextStyle(color: Colors.red),
                   );
+                }
+                return Center(child:Text('Different state?'));
               },
             ),
           ),

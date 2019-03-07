@@ -24,7 +24,7 @@ class _Tab2State extends State<Tab2> {
   void initState() {
     super.initState();
     _dummyBloc = widget.dummyBloc;
-    _dummyBloc.dispatch(FetchDummyInfo());
+    _dummyBloc.dispatch(FetchDummyInfoSecondly());
   }
 
   @override
