@@ -1,13 +1,11 @@
-import 'package:bloc_issue/bloc1/dummyBloc.dart';
-import 'package:bloc_issue/bloc1/dummyEvent.dart';
-import 'package:bloc_issue/bloc1/dummyRepository.dart';
-import 'package:bloc_issue/bloc1/dummyState.dart';
+import 'package:bloc_issue/blocs/blocs.dart';
+import 'package:bloc_issue/dummyRepository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Tab2 extends StatefulWidget {
   final DummyRepository dummyRepository;
-  final DummyBloc dummyBloc;
+  final DummyBloc2 dummyBloc;
 
   Tab2({Key key, @required this.dummyRepository, this.dummyBloc})
       : assert(dummyRepository != null),
@@ -17,14 +15,15 @@ class Tab2 extends StatefulWidget {
   _Tab2State createState() => _Tab2State();
 }
 
-class _Tab2State extends State<Tab2> {
-  DummyBloc _dummyBloc;
+class _Tab2State extends State<Tab2> with AutomaticKeepAliveClientMixin<Tab2> {
+  DummyBloc2 _dummyBloc;
 
   @override
   void initState() {
+    print('initState tab2');
     super.initState();
     _dummyBloc = widget.dummyBloc;
-    _dummyBloc.dispatch(FetchDummyInfoSecondly());
+    _dummyBloc.dispatch(FetchDummyInfo2());
   }
 
   @override
@@ -41,18 +40,19 @@ class _Tab2State extends State<Tab2> {
             elevation: 2.0,
             child: BlocBuilder(
               bloc: _dummyBloc,
-              builder: (_, DummyState state) {
-                if (state is DummyLoading) {
+              builder: (_, DummyState2 state) {
+                if (state is DummyLoading2) {
                   return Center(child: CircularProgressIndicator());
                 }
-                if (state is DummyLoadedSecondly) {
+                if (state is DummyLoaded2) {
                   return Center(
-                    child: Text(state.dummyData.title,
+                    child: Text(
+                      state.dummyData.title,
                       style: TextStyle(color: Colors.green),
                     ),
                   );
                 }
-                if (state is DummyError) {
+                if (state is DummyError2) {
                   return Center(
                     child: Text(
                       'Something went wrong!',
@@ -69,4 +69,6 @@ class _Tab2State extends State<Tab2> {
     );
   }
 
+  @override
+  bool get wantKeepAlive => true;
 }
