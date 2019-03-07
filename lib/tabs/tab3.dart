@@ -46,14 +46,18 @@ class _Tab3State extends State<Tab3> {
                   return Center(child: CircularProgressIndicator());
                 }
                 if (state is DummyLoaded) {
-                  return Text(state.dummyData.title,
-                    style: TextStyle(color: Colors.green),
+                  return Center(
+                    child: Text(state.dummyData.title,
+                      style: TextStyle(color: Colors.green),
+                    ),
                   );
                 }
                 if (state is DummyError) {
-                  return Text(
-                    'Something went wrong!',
-                    style: TextStyle(color: Colors.red),
+                  return Center(
+                    child: Text(
+                      'Something went wrong!',
+                      style: TextStyle(color: Colors.red),
+                    ),
                   );
                 }
                 return Center(child: Text('Went through other event?'));

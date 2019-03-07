@@ -45,14 +45,18 @@ class _Tab1State extends State<Tab1> {
                 if (state is DummyLoading)
                   return Center(child: CircularProgressIndicator());
                 if (state is DummyLoaded) {
-                  return Text(state.dummyData.title,
-                    style: TextStyle(color: Colors.green),
+                  return Center(
+                    child: Text(state.dummyData.title,
+                      style: TextStyle(color: Colors.green),
+                    ),
                   );
                 }
                 if (state is DummyError) {
-                  return Text(
-                    'Something went wrong!',
-                    style: TextStyle(color: Colors.red),
+                  return Center(
+                    child: Text(
+                      'Something went wrong!',
+                      style: TextStyle(color: Colors.red),
+                    ),
                   );
                 }
                 return Center(child:Text('Different state?'));
