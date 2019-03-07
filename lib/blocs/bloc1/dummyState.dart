@@ -14,7 +14,7 @@ class DummyLoading1 extends DummyState1 {
 class DummyLoaded1 extends DummyState1 {
   final DummyData dummyData;
 
-  DummyLoaded1(this.dummyData);
+  DummyLoaded1(this.dummyData) : super([dummyData]);
 
   @override
   String toString() => 'DummyLoaded1 { dummyData: $dummyData }';
