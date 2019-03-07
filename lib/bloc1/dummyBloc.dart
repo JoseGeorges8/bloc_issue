@@ -25,6 +25,14 @@ class DummyBloc extends Bloc<DummyEvent, DummyState> {
       } catch (_) {
         yield DummyError();
       }
+    } else if (event is FetchDummyInfoSecondly) {
+      yield DummyLoading();
+      try {
+        final DummyData dummyData = await dummyRepository.getDummyInfo();
+        yield DummyLoadedSecondly(dummyData);
+      } catch (_) {
+        yield DummyError();
+      }
     }
   }
 }

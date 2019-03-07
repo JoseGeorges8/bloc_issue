@@ -42,18 +42,21 @@ class _Tab2State extends State<Tab2> {
             child: BlocBuilder(
               bloc: _dummyBloc,
               builder: (_, DummyState state) {
-                if (state is DummyLoading)
+                if (state is DummyLoading) {
                   return Center(child: CircularProgressIndicator());
-                if (state is DummyLoaded) {
+                }
+                if (state is DummyLoadedSecondly) {
                   return Text(state.dummyData.title,
                     style: TextStyle(color: Colors.green),
                   );
                 }
-                if (state is DummyError)
+                if (state is DummyError) {
                   return Text(
                     'Something went wrong!',
                     style: TextStyle(color: Colors.red),
                   );
+                }
+                return Center(child: Text('Went through other event?'));
               },
             ),
           ),

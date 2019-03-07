@@ -9,3 +9,9 @@ class FetchDummyInfo extends DummyEvent {
   FetchDummyInfo();
 
 }
+
+class FetchDummyInfoSecondly extends DummyEvent {
+
+  FetchDummyInfoSecondly();
+
+}

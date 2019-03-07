@@ -112,9 +112,9 @@ class _MainTabViewState extends State<MainTabView> with SingleTickerProviderStat
   /// Content page for each slide
   Widget getTabBarPages() {
     return TabBarView(controller: tabController, children: <Widget>[
-      tab3,
       tab1,
       tab2,
+      tab3,
     ]);
   }
 

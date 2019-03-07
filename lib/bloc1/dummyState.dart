@@ -18,4 +18,12 @@ class DummyLoaded extends DummyState {
 
 }
 
+///Supplements Plan Page
+class DummyLoadedSecondly extends DummyState{
+  final DummyData dummyData;
+
+  DummyLoadedSecondly(this.dummyData);
+
+}
+
 class DummyError extends DummyState {}
